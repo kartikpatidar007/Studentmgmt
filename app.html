@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+<form [formGroup]="myform"  (ngSubmit)="formData()" >
+  <label>Enter Name</label>
+  <input type="text" formControlName="fname">    
+  <span *ngIf="myform.controls['fname'].hasError('required')">
+    Name cannot be empty</span>
+  <br><br>
+
+  <label>Enter email</label>
+  <input type="email" formControlName="mymail">    <br><br>
+
+  <label>Enter password</label>
+  <input type="password" formControlName="psw">    
+  
+  <span *ngIf="myform.controls['psw'].hasError('required')">
+      password cannot be empty</span>
+
+  <span *ngIf="myform.controls['psw'].hasError('maxlength')">
+          min 6 letters required</span>    
+  
+  <br><br>
+<div formGroupName="address">
+  <label>Enter Address1</label>
+  <input type="text" formControlName="add1">    <br><br>
+
+  <label>Enter Address2</label>
+  <input type="text" formControlName="add2">    <br><br>
+</div> 
+  <label>Select Country</label>
+  <select>
+    <option>India</option>
+    <option>America</option>
+    <option>England</option>
+  </select> 
+  <br><br>
+
+  <input type="submit">
+</form>
